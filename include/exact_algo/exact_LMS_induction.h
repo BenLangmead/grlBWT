@@ -5,6 +5,7 @@
 #ifndef LPG_COMPRESSOR_LMS_INDUCTION_H
 #define LPG_COMPRESSOR_LMS_INDUCTION_H
 #include "common.h"
+#include <sdsl/bits.hpp>
 #include "bwt_io.h"
 
 namespace exact_algo {

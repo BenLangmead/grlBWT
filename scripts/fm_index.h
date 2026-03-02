@@ -7,6 +7,7 @@
 
 #include "bwt_io.h"
 #include "sdsl/wavelet_trees.hpp"
+#include "sdsl/util.hpp"
 
 struct fm_index{
 
@@ -60,7 +61,7 @@ struct fm_index{
             C_tmp[i] = acc;
             acc+=tmp;
         }
-        C_tmp[k] = acc;
+        C_tmp.push_back(acc);
 
         C.resize(C_tmp.size());
         for(size_t i=0;i<C.size();i++){

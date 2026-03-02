@@ -5,7 +5,14 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules/")
 
-find_package(LibSDSL REQUIRED)
+option(GRLBWT_USE_LOCAL_SDSL_SUBSET "Use vendored SDSL subset under src/thirdparty/sdsl_subset" ON)
+
+if(GRLBWT_USE_LOCAL_SDSL_SUBSET)
+    set(LIBSDSL_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/thirdparty/sdsl_subset/include)
+    set(LIBSDSL_LIBRARIES "")
+else()
+    find_package(LibSDSL REQUIRED)
+endif()
 add_subdirectory(external/cdt)
 add_subdirectory(external/bioparsers)
 
@@ -58,7 +65,7 @@ if(UNIX AND NOT APPLE)
     target_link_libraries(grlbwt LINK_PUBLIC stdc++fs)
 endif()
 
-target_link_libraries(grlbwt LINK_PUBLIC z pthread cdt)
+target_link_libraries(grlbwt LINK_PUBLIC z pthread cdt ${LIBSDSL_LIBRARIES})
 
 target_include_directories(grlbwt
         PUBLIC

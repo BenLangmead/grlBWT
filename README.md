@@ -11,15 +11,18 @@ computations, thus decreasing computing time too.
 2. [xxHash](https://github.com/Cyan4973/xxHash)
 3. [CLI11](https://github.com/CLIUtils/CLI11)
 
+
 ## Prerequisites
 
 1. C++ >= 17
 2. CMake >= 3.7
-3. SDSL-lite
+3. (Optional) System SDSL-lite installation
 
-The xxHash and CLI11 libraries are already included in the source files of this repository. The SDSL-lite has to be installed beforehand.
-However, we include a CMake module that will search for its local
-installation. No need to indicate the path during the compilation.
+The xxHash and CLI11 libraries are already included in the source files of this repository.
+
+By default, the build uses a vendored **source-only** SDSL-compatible subset stored in `src/thirdparty/sdsl_subset/`, so a system-wide SDSL installation is not required and no prebuilt `.a` files are committed.
+
+If you prefer the old behavior, configure CMake with `-DGRLBWT_USE_LOCAL_SDSL_SUBSET=OFF`, and the build will use `find_package(LibSDSL)` to locate a local SDSL installation.
 
 ## Installation
 

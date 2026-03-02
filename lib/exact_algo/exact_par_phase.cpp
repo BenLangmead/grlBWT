@@ -2,6 +2,7 @@
 // Created by Diaz, Diego on 26.1.2023.
 //
 
+#include <cmath>
 #include "exact_par_phase.hpp"
 #include "exact_LMS_induction.h"
 

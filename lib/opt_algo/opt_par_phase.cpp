@@ -2,6 +2,7 @@
 // Created by Diaz, Diego on 26.1.2023.
 //
 
+#include <cmath>
 #include "opt_par_phase.hpp"
 
 #include "bwt_io.h"
