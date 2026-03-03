@@ -6,6 +6,9 @@
 #define GRLBWT_OPT_PAR_PHASE_H
 
 #include "common.h"
+#include <sdsl/io.hpp>
+#include <sdsl/structure_tree.hpp>
+#include <sdsl/util.hpp>
 #include "utils.h"
 #include "parsing_strategies.h"
 
